@@ -3,22 +3,231 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>All Around Calculator</title>
+    <title>For My Love 💕</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="css/images/logo.png">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💕</text></svg>">
 </head>
 
 <body>
     <!-- Developed by GrabCharles -->
-    
+
+    <!-- Page 1: Welcome Page -->
+    <div id="page-welcome" class="page active">
+        <div class="content-wrapper">
+            <h1 class="main-title">Happy 3rd Monthsary! <span class="heart">💕</span></h1>
+            <div class="gif-container">
+                <img src="https://media.giphy.com/media/LmCYGjPpr1SDS6FqZX/giphy.gif" alt="Cute hearts"
+                    class="welcome-gif">
+            </div>
+            <button class="next-btn" onclick="goToPage('page-gallery')">
+                Next
+                <span class="btn-heart">💖</span>
+            </button>
+        </div>
+        <div class="floating-hearts"></div>
+    </div>
+
+    <!-- Page 2: Polaroid Gallery -->
+    <div id="page-gallery" class="page">
+        <div class="content-wrapper">
+            <h2 class="page-title">Our Special Moments 📸</h2>
+            <div class="polaroid-gallery">
+                <!-- Polaroid 1 -->
+                <div class="polaroid" onclick="goToPage('page-song')">
+                    <div class="polaroid-inner">
+                        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&h=400&fit=crop"
+                            alt="Music">
+                        <p class="polaroid-caption">Our Song 🎵</p>
+                    </div>
+                </div>
+
+                <!-- Polaroid 2 -->
+                <div class="polaroid" onclick="goToPage('page-envelope')">
+                    <div class="polaroid-inner">
+                        <img src="https://images.unsplash.com/photo-1525268771113-32d9e9021a97?w=400&h=400&fit=crop"
+                            alt="Letter">
+                        <p class="polaroid-caption">A Letter for You 💌</p>
+                    </div>
+                </div>
+
+                <!-- Polaroid 3 -->
+                <div class="polaroid" onclick="goToPage('page-password')">
+                    <div class="polaroid-inner">
+                        <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=400&h=400&fit=crop"
+                            alt="Secret">
+                        <p class="polaroid-caption">Our Secret 💝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Song Page -->
+    <div id="page-song" class="page">
+        <div class="content-wrapper">
+            <h2 class="page-title">A Song Just For You 🎶</h2>
+            <div class="video-container">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/kTJczUoc26U"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <p class="song-message">
+                Every time I hear this song, I think of you. It reminds me of all the beautiful moments we've shared
+                together. You make every day feel like a melody. 💕
+            </p>
+            <button class="back-btn" onclick="goToPage('page-gallery')">
+                ← Back
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 4: Envelope -->
+    <div id="page-envelope" class="page">
+        <div class="content-wrapper">
+            <h2 class="page-title">I Wrote a Letter for You 💌</h2>
+            <div class="envelope-container">
+                <img src="https://media.giphy.com/media/xUOrw5LIxb8S9X1LGg/giphy.gif" alt="Letter envelope"
+                    class="envelope-gif">
+            </div>
+            <button class="next-btn" onclick="goToPage('page-letter-prompt')">
+                Next
+                <span class="btn-heart">💖</span>
+            </button>
+            <button class="back-btn" onclick="goToPage('page-gallery')">
+                ← Back
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 5: Letter Prompt -->
+    <div id="page-letter-prompt" class="page">
+        <div class="content-wrapper">
+            <div class="cat-gif-container">
+                <img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" alt="Cute cat" class="cat-gif">
+            </div>
+            <h2 class="page-title prompt-title">Do you want to open it? 🥺</h2>
+            <div class="button-group">
+                <button class="choice-btn yes-btn" onclick="goToPage('page-letter')">
+                    Yes! 💕
+                </button>
+                <button class="choice-btn no-btn" onclick="goToPage('page-letter-sad')">
+                    No
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 6: Sad Cat Page -->
+    <div id="page-letter-sad" class="page">
+        <div class="content-wrapper">
+            <div class="cat-gif-container">
+                <img src="https://media.giphy.com/media/L95W4wv8nnb9K/giphy.gif" alt="Sad cat" class="cat-gif sad-cat">
+            </div>
+            <h2 class="page-title sad-title">Awhhh are you sure? 😿</h2>
+            <p class="sad-message">Let's try again...</p>
+            <button class="next-btn" onclick="goToPage('page-letter-prompt')">
+                Try Again
+                <span class="btn-heart">💖</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 7: The Letter -->
+    <div id="page-letter" class="page">
+        <div class="content-wrapper">
+            <div class="letter-gif">
+                <img src="https://media.giphy.com/media/M90mJvfWfd5mbUuULX/giphy.gif" alt="Hearts" class="happy-gif">
+            </div>
+            <div class="letter-content">
+                <h2 class="letter-title">My Dearest Love,</h2>
+                <p class="letter-text">
+                    It's been 3 amazing months since you came into my life, and every single day with you feels like a
+                    dream come true.
+                    <br><br>
+                    You make me smile even on my darkest days. Your laugh is my favorite sound, your smile is my
+                    favorite sight, and your happiness is my favorite goal.
+                    <br><br>
+                    Thank you for being patient with me, for understanding me, and for loving me just the way I am.
+                    You're not just my girlfriend, you're my best friend, my confidant, and my safe place.
+                    <br><br>
+                    I can't wait to make more memories with you, to share more laughs, more adventures, and more moments
+                    that make my heart skip a beat.
+                    <br><br>
+                    Here's to many more months together, my love. Happy 3rd Monthsary!
+                    <br><br>
+                    Forever yours,<br>
+                    <span class="signature">Your Charles 💕</span>
+                </p>
+            </div>
+            <button class="back-btn" onclick="goToPage('page-gallery')">
+                ← Back
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 8: Password Page -->
+    <div id="page-password" class="page">
+        <div class="content-wrapper">
+            <h2 class="page-title">Hey pretty, what's the magic word? 🔐</h2>
+            <div class="password-container">
+                <div class="lock-icon">🔒</div>
+                <input type="text" id="password-input" class="password-input" placeholder="Type the magic word..."
+                    autocomplete="off">
+                <button class="next-btn" onclick="checkPassword()">
+                    Submit
+                    <span class="btn-heart">💖</span>
+                </button>
+            </div>
+            <button class="back-btn" onclick="goToPage('page-gallery')">
+                ← Back
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 9: Wrong Password Page -->
+    <div id="page-wrong-password" class="page">
+        <div class="content-wrapper">
+            <div class="cat-gif-container">
+                <img src="https://media.giphy.com/media/kGi8FPpITestJby4QB/giphy.gif" alt="Sad crying cat"
+                    class="cat-gif sad-cat">
+            </div>
+            <h2 class="page-title sad-title">Awhhh... you don't love me anymore? 😿💔</h2>
+            <button class="next-btn" onclick="goToPage('page-password')">
+                I love you
+                <span class="btn-heart">💕</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 10: Success Page -->
+    <div id="page-success" class="page">
+        <div class="content-wrapper">
+            <div class="success-animation">
+                <div class="hearts-burst"></div>
+                <img src="https://media.giphy.com/media/UVk5yzljef0kGiayL1/giphy.gif" alt="Love hearts"
+                    class="success-gif">
+            </div>
+            <div class="success-message-container">
+                <h1 class="typing-title" id="typing-text"></h1>
+                <p class="success-subtitle">More monthsaries to come! <span class="heart">💕</span></p>
+            </div>
+            <button class="back-btn" onclick="goToPage('page-gallery')">
+                ← Back
+            </button>
+        </div>
+    </div>
 
     <!-- JS -->
     <script src="js/index.js"></script>

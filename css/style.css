@@ -1,0 +1,860 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 25%, #ffd4e8 50%, #ffc4df 75%, #ffb3d6 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Page Container */
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.page.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-wrapper {
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Welcome Page Styles */
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #ff1493;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.3);
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.heart {
+    display: inline-block;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+.gif-container {
+    margin: 40px auto;
+    max-width: 400px;
+}
+
+.welcome-gif {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.4);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Floating Hearts Background */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp 6s linear forwards;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -50px;
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 110vh;
+        opacity: 0;
+    }
+}
+
+/* Button Styles */
+.next-btn,
+.back-btn,
+.choice-btn {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 15px 50px;
+    margin: 20px 10px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
+}
+
+.next-btn,
+.yes-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+}
+
+.back-btn,
+.no-btn {
+    background: linear-gradient(135deg, #ffb3d6, #ff8dc7);
+    color: white;
+}
+
+.next-btn:hover,
+.choice-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 105, 180, 0.5);
+}
+
+.next-btn:active,
+.choice-btn:active,
+.back-btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn-heart {
+    display: inline-block;
+    margin-left: 8px;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+/* Sparkle Effect */
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleAnimation 0.6s ease-out forwards;
+}
+
+@keyframes sparkleAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* Polaroid Gallery */
+.page-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff1493;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+.polaroid-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 40px auto;
+}
+
+.polaroid {
+    background: white;
+    padding: 15px;
+    padding-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: rotate(-2deg);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    animation: polaroidEntry 0.6s ease-out;
+}
+
+.polaroid:nth-child(2) {
+    transform: rotate(3deg);
+}
+
+.polaroid:nth-child(3) {
+    transform: rotate(-3deg);
+}
+
+@keyframes polaroidEntry {
+    from {
+        opacity: 0;
+        transform: translateY(50px) rotate(0deg);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.polaroid:hover {
+    transform: translateY(-15px) rotate(0deg) scale(1.1);
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.5);
+    z-index: 10;
+}
+
+.polaroid:active {
+    transform: translateY(-10px) rotate(0deg) scale(1.05);
+}
+
+.polaroid-inner img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border: 2px solid #f0f0f0;
+}
+
+.polaroid-caption {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: #333;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Song Page */
+.video-container {
+    max-width: 700px;
+    margin: 30px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.4);
+}
+
+.video-container iframe {
+    aspect-ratio: 16/9;
+    border-radius: 15px;
+}
+
+.song-message {
+    font-size: 1.2rem;
+    color: #d4006e;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.2);
+    line-height: 1.8;
+}
+
+/* Envelope Page */
+.envelope-container {
+    margin: 40px auto;
+}
+
+.envelope-gif {
+    max-width: 300px;
+    border-radius: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Cat GIF Styles */
+.cat-gif-container {
+    margin: 30px auto;
+}
+
+.cat-gif {
+    max-width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+.sad-cat {
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.prompt-title {
+    font-size: 2.2rem;
+    margin: 30px 0;
+}
+
+.sad-title {
+    color: #ff6b9d;
+}
+
+.sad-message {
+    font-size: 1.3rem;
+    color: #ff1493;
+    margin: 20px 0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Letter Page */
+.letter-gif {
+    margin: 20px auto;
+}
+
+.happy-gif {
+    max-width: 200px;
+    border-radius: 50%;
+    animation: float 3s ease-in-out infinite;
+}
+
+.letter-content {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+    position: relative;
+}
+
+.letter-content::before {
+    content: '💕';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    background: white;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.letter-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ff1493;
+    margin-bottom: 25px;
+}
+
+.letter-text {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 2;
+    text-align: left;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #ff1493;
+}
+
+/* Memories Page */
+.memories-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.memory-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+    transition: all 0.3s ease;
+    animation: cardPulse 2s ease-in-out infinite;
+    animation-play-state: paused;
+}
+
+.memory-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
+    animation-play-state: running;
+}
+
+@keyframes cardPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.memory-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.memory-card h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #ff1493;
+    margin-bottom: 10px;
+}
+
+.memory-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.memories-gif {
+    margin: 40px auto;
+}
+
+.love-gif {
+    max-width: 300px;
+    border-radius: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Particle Effect */
+.particle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 24px;
+    animation: particleFloat 1s ease-out forwards;
+    z-index: 9999;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1);
+    }
+}
+
+/* Password Page Styles */
+.password-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 50px 30px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(255, 105, 180, 0.4);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lock-icon {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    animation: lockShake 2s ease-in-out infinite;
+}
+
+@keyframes lockShake {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+.password-input {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-family: 'Quicksand', sans-serif;
+    border: 3px solid #ffb3d6;
+    border-radius: 50px;
+    outline: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: #fff5fb;
+    color: #ff1493;
+    margin-bottom: 25px;
+}
+
+.password-input::placeholder {
+    color: #ffb3d6;
+}
+
+.password-input:focus {
+    border-color: #ff69b4;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+    transform: scale(1.02);
+}
+
+/* Success Page Styles */
+.success-animation {
+    position: relative;
+    margin: 40px auto;
+    display: inline-block;
+}
+
+.success-gif {
+    max-width: 300px;
+    border-radius: 50%;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.5);
+    animation: successPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes successPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.hearts-burst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.burst-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    animation: burstOut 2s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes burstOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translate(0, 0) scale(0);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translate(calc(cos(var(--angle)) * 200px),
+                calc(sin(var(--angle)) * 200px)) scale(1.5);
+    }
+}
+
+.success-message-container {
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(255, 105, 180, 0.4);
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.success-message-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 182, 193, 0.3),
+            transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.typing-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #ff1493;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.typing-title::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
+
+.typing-title.typing-complete::after {
+    content: '';
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.success-subtitle {
+    font-size: 1.5rem;
+    color: #ff69b4;
+    font-weight: 600;
+    animation: fadeIn 1s ease-in 2s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .polaroid-inner img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .letter-content {
+        padding: 25px;
+    }
+
+    .letter-text {
+        font-size: 1rem;
+    }
+
+    .next-btn,
+    .back-btn,
+    .choice-btn {
+        font-size: 1.1rem;
+        padding: 12px 35px;
+    }
+
+    .password-container {
+        padding: 40px 20px;
+    }
+
+    .password-input {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    .typing-title {
+        font-size: 2.2rem;
+    }
+
+    .success-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .polaroid-inner img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .polaroid-gallery {
+        gap: 25px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .choice-btn {
+        width: 80%;
+    }
+
+    .typing-title {
+        font-size: 1.8rem;
+    }
+
+    .success-subtitle {
+        font-size: 1rem;
+    }
+
+    .password-input {
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add shimmer effect to titles */
+.main-title::after,
+.page-title::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.main-title,
+.page-title {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
